@@ -129,7 +129,7 @@ body {
     font-weight: 900;
     line-height: 135%; 
     grid-column-start: 1;
-    grid-column-end: 9;
+    grid-column-end: 1;
 }
 
 .about-paragraph-2 {
@@ -275,11 +275,12 @@ body {
     margin-bottom: 200px;
 }
 
+
 .student-title {
     grid-column: span 6;
     font-size: 55px;
     font-weight: bold;
-    color: #FFF200;
+    color: #ffffff;
     text-align: left;
     align-self: end;
     margin: 0;
@@ -290,7 +291,7 @@ body {
     grid-column: span 6;
     font-size: 18px;
     font-weight: 500;
-    color: #FFF200;
+    color: #ffffff;
     align-self: end;
     margin: 0;
 }
@@ -302,22 +303,39 @@ body {
     margin-top: 100px;
 }
 
-.student-image {
-    width: 100%;
-    object-fit: cover;
-    margin-bottom: 20px;
-}
 
-.student-card-title {
-    font-size: 18px;
-    font-weight: 500;
-    color: #ffffff;
+.video {
+    background-color: #000; /* Sfondo per riempire il box */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Per sicurezza, evita overflow */
+  }
+  
+
+  .student-card-title {
+    margin-top: 20px;
+    font-size: 18px; /* Incrementa leggermente la dimensione del testo */
+    font-weight: 600; /* Rende il testo leggermente meno spesso */
+    color: #ffffff; /* Cambia il colore del testo */
 }
 
 .student-card-subtitle {
-    font-size: 14px;
-    color: white;
+    font-size: 14px; /* Adatta la dimensione del sottotitolo */
+    font-style: italic; /* Aggiunge uno stile corsivo */
+    color: #FFFFFF; /* Mantiene il colore bianco */
 }
+
+
+.student-card video {
+    width: 90%; /* Larghezza del box */
+    height: auto; /* Altezza proporzionale */
+    object-fit: cover; /* Ritaglio per riempire il box */
+    aspect-ratio: 1 / 1; /* Mantieni un formato quadrato */
+    object-fit: cover; /* Ritaglio del video se necessario */
+}
+
+
 
 /* Footer */
 .footer {
@@ -428,18 +446,33 @@ s
     display: none;
 }
 
-.student-3d-container {
-    width: 100%;
-    height: 300px;
-    background-color: #000;
-    position: relative;
-    overflow: hidden;
-}
 
 #titolo_semester_mobile {
     display: none; 
 }
 
+.bn-filter {
+    filter: grayscale(100%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* RESPONSIVE IPHONE*/
 
 @media (max-width: 530px) {
     #image-container, #magazine-container, #about-container {

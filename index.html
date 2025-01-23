@@ -7,16 +7,19 @@
     <link rel="stylesheet" href="./assets/style.css" />
 </head>
 <body>
+
+<!-- SEZIONE NAV -->
+
     <div class="grid-container">
-        <!-- nav desk -->
+        <!-- NAV DESKTOP-->
         <nav class="nav">
             <a href="#magazine">magazine</a>
             <a href="#project">project</a>
             <a href="./about.html">ABOUT</a>
             <a href="mailto:valliroberta8@gmail.com">Contact</a>
         </nav>
-                <!-- nav mob -->
 
+         <!-- NAV MOBILE -->
         <div class="menu-overlay" id="menu-overlay"></div>
         <div class="menu-icon" id="menu-icon">
             <img src="./assets/icon/menu_icon.svg" alt="Menu">
@@ -28,36 +31,38 @@
             <a href="#about">ABOUT</a>
             <a href="mailto:valliroberta8@gmail.com">CONTACT</a>
         </div>
-    </div>
+        </div>
+
+        <!-- ANIMAZIONE FOTO HEADER -->
+        <div id="animazione">
+                <div class="rect rect-top"></div>
+                <div class="rect rect-bottom"></div>
+                <div class="rect rect-left"></div>
+                <div class="rect rect-right"></div>
+                <div id="image-container"></div>
+                <h1 class="titolo_sezione titolo_desktop" id="titolo_semester_desktop">SEMESTER</h1>
+                <h1 class="titolo_sezione titolo_mobile" id="titolo_semester_mobile">S</h1>
+        </div>
 
 
+<!-- COLLEGAMENTO ABOUT -->
+        <div id="about">
+            <div class="image-container-about" id="image-container-about">
+            <img src="assets/about.jpg" alt="Magazine Image" class="about-image" />
+            </div>
+            <h1 class="titolo_sezione">ABOUT</h1>
+        </div>
 
-
-    <div id="animazione">
-        <div class="rect rect-top"></div>
-        <div class="rect rect-bottom"></div>
-        <div class="rect rect-left"></div>
-        <div class="rect rect-right"></div>
-        <div id="image-container"></div>
-        <h1 class="titolo_sezione titolo_desktop" id="titolo_semester_desktop">SEMESTER</h1>
-        <h1 class="titolo_sezione titolo_mobile" id="titolo_semester_mobile">S</h1>
-</div>
-
-   <div id="about">
-    <div class="image-container-about" id="image-container-about">
-        <img src="assets/about.jpg" alt="Magazine Image" class="about-image" />
-    </div>
-    <h1 class="titolo_sezione">ABOUT</h1>
-</div>
-
-
-<div id="magazine">
-    <div class="image-container-magazine" id="image-container-magazine">
+<!-- SEZIONE RICHIESTA MAGAZINE -->
+    <div id="magazine">
+        <div class="image-container-magazine" id="image-container-magazine">
         <img src="assets/magazine.jpg" alt="Magazine Image" class="magazine-image" />
     </div>
-    <h1 class="titolo_sezione">MAGAZINE</h1>
+        <h1 class="titolo_sezione">MAGAZINE</h1>
 </div>
 
+
+<!-- SEZIONE PROGETTI INDICE -->
 <div id="project">
     <h2 class="project-title interactive">Interactive projects</h2>
 
@@ -82,6 +87,7 @@
 </div>
 
 
+<!-- SEZIONE SUDENTI -->
     <div class="image-preview" id="image-preview"></div>
 
     <div class="student-section">
@@ -89,83 +95,194 @@
         <p class="student-paragraph">
             Each student here played a crucial role in shaping the Semester magazine. While some explored design objects as the basis for their projects, others focused on creating interactive installations and digital experiences that enrich the magazine. This mixture of creative approaches highlights the diversity of talents and perspectives within the group, coming together to form a cohesive and multi-dimensional body of work.        </p>
     
-        <!-- card 3d -->
-        <div class="student-card">
-            <video src="assets/video_volti/prova_arianna_quadrato.mp4" autoplay muted loop></video>            
-            <div class="student-info">
-                <h3 class="student-card-title">Student Name</h3>
-                <p class="student-card-subtitle">Title project/role</p>
+            <div class="student-card">
+                <video src="assets/video_volti/nuovi_volti_3d_colori/alessia_volto_colori.mp4" autoplay muted style="filter: grayscale(50%);"></video>            
+                <div class="student-info">
+                    <h3 class="student-card-title">Julian Doe</h3>
+                    <p class="student-card-subtitle">Creative Director / AR Cover</p>
+                </div>
             </div>
-        </div>
-
-        <div class="student-card">
-            <video src="assets/video_volti/prova_julian_quadrato.mp4" autoplay muted loop></video>            
-            <div class="student-info">
-                <h3 class="student-card-title">Student Name</h3>
-                <p class="student-card-subtitle">Title project/role</p>
+            <div class="student-card">
+                <video src="assets/video_volti/nuovi_volti_3d_colori/aline_volto_colori.mp4" autoplay muted  style="filter: grayscale(50%);"></video>            
+                <div class="student-info">
+                    <h3 class="student-card-title">Julian Doe</h3>
+                    <p class="student-card-subtitle">Creative Director / AR Cover</p>
+                </div>
             </div>
-        </div>
-
-        <div class="student-card">
-            <video src="assets/video_volti/prova_arianna_quadrato.mp4" autoplay muted loop></video>            
-            <div class="student-info">
-                <h3 class="student-card-title">Student Name</h3>
-                <p class="student-card-subtitle">Title project/role</p>
+    
+            <div class="student-card">
+                <video src="assets/video_volti/nuovi_volti_3d_colori/ari_volto_colori.mp4" autoplay muted  style="filter: grayscale(50%);"></video>            
+                <div class="student-info">
+                    <h3 class="student-card-title">Julian Doe</h3>
+                    <p class="student-card-subtitle">Creative Director / AR Cover</p>
+                </div>
             </div>
-        </div>
-
-        <div class="student-card">
-            <video src="assets/video_volti/prova_julian_quadrato.mp4" autoplay muted loop></video>            
-            <div class="student-info">
-                <h3 class="student-card-title">Student Name</h3>
-                <p class="student-card-subtitle">Title project/role</p>
+            <div class="student-card">
+                <video src="assets/video_volti/nuovi_volti_3d_colori/arianna_volto_colori.mp4" autoplay muted  style="filter: grayscale(50%);"></video>            
+                <div class="student-info">
+                    <h3 class="student-card-title">Julian Doe</h3>
+                    <p class="student-card-subtitle">Creative Director / AR Cover</p>
+                </div>
             </div>
-        </div>
-
-        <div class="student-card">
-            <video src="assets/video_volti/prova_arianna_quadrato.mp4" autoplay muted loop></video>            
-            <div class="student-info">
-                <h3 class="student-card-title">Student Name</h3>
-                <p class="student-card-subtitle">Title project/role</p>
+            <div class="student-card">
+                <video src="assets/video_volti/nuovi_volti_3d_colori/astrid_volto_colori.mp4" autoplay muted loop style="filter: grayscale(50%);"></video>            
+                <div class="student-info">
+                    <h3 class="student-card-title">Julian Doe</h3>
+                    <p class="student-card-subtitle">Creative Director / AR Cover</p>
+                </div>
             </div>
-        </div>
-
-        <div class="student-card">
-            <video src="assets/video_volti/prova_julian_quadrato.mp4" autoplay muted loop ></video>            
-            <div class="student-info">
-                <h3 class="student-card-title">Student Name</h3>
-                <p class="student-card-subtitle">Title project/role</p>
+            <div class="student-card">
+                <video src="assets/video_volti/nuovi_volti_3d_colori/davide_volto_colori.mp4" autoplay muted loop style="filter: grayscale(50%);"></video>            
+                <div class="student-info">
+                    <h3 class="student-card-title">Julian Doe</h3>
+                    <p class="student-card-subtitle">Creative Director / AR Cover</p>
+                </div>
             </div>
-        </div>
-
-        <div class="student-card">
-            <video src="assets/video_volti/prova_arianna_quadrato.mp4" autoplay muted loop></video>            
-            <div class="student-info">
-                <h3 class="student-card-title">Student Name</h3>
-                <p class="student-card-subtitle">Title project/role</p>
+            <div class="student-card">
+                <video src="assets/video_volti/nuovi_volti_3d_colori/dragan_volto_colori.mp4" autoplay muted loop style="filter: grayscale(50%);"></video>            
+                <div class="student-info">
+                    <h3 class="student-card-title">Julian Doe</h3>
+                    <p class="student-card-subtitle">Creative Director / AR Cover</p>
+                </div>
             </div>
-        </div>
-
-        <div class="student-card">
-            <video src="assets/video_volti/prova_julian_quadrato.mp4" autoplay muted loop></video>            
-            <div class="student-info">
-                <h3 class="student-card-title">Student Name</h3>
-                <p class="student-card-subtitle">Title project/role</p>
+    
+            <div class="student-card">
+                <video src="assets/video_volti/nuovi_volti_3d_colori/edoardo_volto_colori.mp4" autoplay muted loop style="filter: grayscale(50%);"></video>            
+                <div class="student-info">
+                    <h3 class="student-card-title">Julian Doe</h3>
+                    <p class="student-card-subtitle">Creative Director / AR Cover</p>
+                </div>
             </div>
-        </div>
+            <div class="student-card">
+                <video src="assets/video_volti/nuovi_volti_3d_colori/elia_volto_colori.mp4" autoplay muted loop style="filter: grayscale(50%);"></video>            
+                <div class="student-info">
+                    <h3 class="student-card-title">Julian Doe</h3>
+                    <p class="student-card-subtitle">Creative Director / AR Cover</p>
+                </div>
+            </div>
 
+                   <div class="student-card">
+                <video src="assets/video_volti/nuovi_volti_3d_colori/federica_volto_colori.mp4" autoplay muted loop style="filter: grayscale(50%);"></video>            
+                <div class="student-info">
+                    <h3 class="student-card-title">Julian Doe</h3>
+                    <p class="student-card-subtitle">Creative Director / AR Cover</p>
+                </div>
+            </div>
+            <div class="student-card">
+                <video src="assets/video_volti/nuovi_volti_3d_colori/gabriele_volto_colori.mp4" autoplay muted loop style="filter: grayscale(50%);"></video>            
+                <div class="student-info">
+                    <h3 class="student-card-title">Julian Doe</h3>
+                    <p class="student-card-subtitle">Creative Director / AR Cover</p>
+                </div>
+            </div>
+    
+            <div class="student-card">
+                <video src="assets/video_volti/nuovi_volti_3d_colori/gizzi_volto_colori.mp4" autoplay muted loop style="filter: grayscale(50%);"></video>            
+                <div class="student-info">
+                    <h3 class="student-card-title">Julian Doe</h3>
+                    <p class="student-card-subtitle">Creative Director / AR Cover</p>
+                </div>
+            </div>
+            <div class="student-card">
+                <video src="assets/video_volti/nuovi_volti_3d_colori/greta_volto_colori.mp4" autoplay muted loop style="filter: grayscale(50%);"></video>            
+                <div class="student-info">
+                    <h3 class="student-card-title">Julian Doe</h3>
+                    <p class="student-card-subtitle">Creative Director / AR Cover</p>
+                </div>
+            </div>
+            <div class="student-card">
+                <video src="assets/video_volti/nuovi_volti_3d_colori/julian_si_volto_colori.mp4" autoplay muted loop style="filter: grayscale(50%);"></video>            
+                <div class="student-info">
+                    <h3 class="student-card-title">Julian Doe</h3>
+                    <p class="student-card-subtitle">Creative Director / AR Cover</p>
+                </div>
+            </div>
+            <div class="student-card">
+                <video src="assets/video_volti/nuovi_volti_3d_colori/lara_volto_colori.mp4" autoplay muted loop style="filter: grayscale(50%);"></video>            
+                <div class="student-info">
+                    <h3 class="student-card-title">Julian Doe</h3>
+                    <p class="student-card-subtitle">Creative Director / AR Cover</p>
+                </div>
+            </div>
+            <div class="student-card">
+                <video src="assets/video_volti/nuovi_volti_3d_colori/luca_volto_colori.mp4" autoplay muted loop style="filter: grayscale(50%);"></video>            
+                <div class="student-info">
+                    <h3 class="student-card-title">Julian Doe</h3>
+                    <p class="student-card-subtitle">Creative Director / AR Cover</p>
+                </div>
+            </div>
+            <div class="student-card">
+                <video src="assets/video_volti/nuovi_volti_3d_colori/luna_volto_colori.mp4" autoplay muted loop style="filter: grayscale(50%);"></video>            
+                <div class="student-info">
+                    <h3 class="student-card-title">Julian Doe</h3>
+                    <p class="student-card-subtitle">Creative Director / AR Cover</p>
+                </div>
+            </div>
+            <div class="student-card">
+                <video src="assets/video_volti/nuovi_volti_3d_colori/margherita_volto_colori.mp4" autoplay muted loop style="filter: grayscale(50%);"></video>            
+                <div class="student-info">
+                    <h3 class="student-card-title">Julian Doe</h3>
+                    <p class="student-card-subtitle">Creative Director / AR Cover</p>
+                </div>
+            </div>
+            <div class="student-card">
+                <video src="assets/video_volti/nuovi_volti_3d_colori/micol_volto_colori.mp4" autoplay muted loop style="filter: grayscale(50%);"></video>            
+                <div class="student-info">
+                    <h3 class="student-card-title">Julian Doe</h3>
+                    <p class="student-card-subtitle">Creative Director / AR Cover</p>
+                </div>
+            </div>
+            <div class="student-card">
+                <video src="assets/video_volti/nuovi_volti_3d_colori/paola_volto_colori.mp4" autoplay muted loop style="filter: grayscale(50%);"></video>            
+                <div class="student-info">
+                    <h3 class="student-card-title">Julian Doe</h3>
+                    <p class="student-card-subtitle">Creative Director / AR Cover</p>
+                </div>
+            </div>
+            <div class="student-card">
+                <video src="assets/video_volti/nuovi_volti_3d_colori/robi_volto_colori.mp4" autoplay muted loop style="filter: grayscale(50%);"></video>            
+                <div class="student-info">
+                    <h3 class="student-card-title">Julian Doe</h3>
+                    <p class="student-card-subtitle">Creative Director / AR Cover</p>
+                </div>
+            </div>
+            <div class="student-card">
+                <video src="assets/video_volti/nuovi_volti_3d_colori/simone_volto_colori.mp4" autoplay muted loop style="filter: grayscale(50%);"></video>            
+                <div class="student-info">
+                    <h3 class="student-card-title">Julian Doe</h3>
+                    <p class="student-card-subtitle">Creative Director / AR Cover</p>
+                </div>
+            </div>
+            <div class="student-card">
+                <video src="assets/video_volti/nuovi_volti_3d_colori/stocker_volto_colori.mp4" autoplay muted loop style="filter: grayscale(50%);"></video>            
+                <div class="student-info">
+                    <h3 class="student-card-title">Julian Doe</h3>
+                    <p class="student-card-subtitle">Creative Director / AR Cover</p>
+                </div>
+            </div>
+            <div class="student-card">
+                <video src="assets/video_volti/nuovi_volti_3d_colori/walter_volto_colori.mp4" autoplay muted loop style="filter: grayscale(50%);"></video>            
+                <div class="student-info">
+                    <h3 class="student-card-title">Julian Doe</h3>
+                    <p class="student-card-subtitle">Creative Director / AR Cover</p>
+                </div>
+            </div>
 
-
-
+    </div> <!-- chiusura students -->
+    
+<!-- SEZIONE footer -->
     <footer class="footer">
         <div class="footer-logo">
-            <img src="assets/logo/logo_b.png" alt="Logo" class="footer-logo-img">
+        <img src="assets/logo/logo_b.png" alt="Logo" class="footer-logo-img">
         </div>
     </footer>
     
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
 <script src="./assets/scripts.js"></script>
+    
+<script>
+
+</script>
+
 </body>
 </html>
 
