@@ -14,17 +14,17 @@
 
 html, body {
     overflow-x: hidden;
-    margin: 0;
-    padding: 0;
     width: 100vw;
+    padding: 0;
     height: 100%;
     font-family: 'KFZuka-Variable', sans-serif;
     background-color: black;
 }
 
-body {
-    padding-top: 0vw;
-}
+/*body {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}*/
 
 .grid-container {
     display: grid;
@@ -37,7 +37,7 @@ body {
 .nav {
     grid-column: span 12;
     display: grid;
-    grid-template-columns: repeat(4, 3fr);
+    grid-template-columns: repeat(5, 3fr);
     position: fixed;
     top: 0;
     left: 0;
@@ -113,10 +113,10 @@ body {
 .about-text-section {
     display: grid; 
     grid-template-columns: repeat(12, 1fr); 
-    gap: 16px; 
-    width: 100%; 
-    margin-left: 20px;
-    margin-right: 20px;
+    column-gap: 16px; 
+    row-gap: 50px; 
+    margin-left: 1rem;
+    margin-right: 1rem;
     margin-top: 50px;
     margin-bottom: 50px;
 }
@@ -129,7 +129,7 @@ body {
     font-weight: 900;
     line-height: 135%; 
     grid-column-start: 1;
-    grid-column-end: 1;
+    grid-column-end: 13;
 }
 
 .about-paragraph-2 {
@@ -195,6 +195,11 @@ body {
     height: 184px;
 }
 
+
+#project{
+    margin-left: 1rem; 
+    margin-right: 1rem; 
+}
 .titolo_sezione {
     position: absolute;
     font-size: 135px;
@@ -220,7 +225,8 @@ body {
 }
 
 .project-name {
-    color: #FF6A00;
+    /*color: #FF6A00;*/
+    color: #FF651C;
     text-align: center;
     font-family: "KF Zuka";
     font-size: 135px;
@@ -264,15 +270,16 @@ body {
 /* Sezione studenti */
 .student-section {
     margin-top: 250px;
+    margin-right: 1rem;
+    margin-left: 1rem;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: 16px;
     background-color: black;
     color: white;
     align-items: end;
-    margin-left: 2vw;
-    margin-right: 2vw;
     margin-bottom: 200px;
+
 }
 
 
@@ -300,9 +307,8 @@ body {
     grid-column: span 2;
     display: flex;
     flex-direction: column;
-    margin-top: 100px;
+    margin-top: 50px;
 }
-
 
 .video {
     background-color: #000; /* Sfondo per riempire il box */
@@ -335,45 +341,42 @@ body {
     object-fit: cover; /* Ritaglio del video se necessario */
 }
 
-
-
-/* Footer */
 .footer {
-    background-color: #000;
-    gap: 16px;
-    padding: 20px;
-    height: 100px;
-    width: 100%;
-    align-items: end;
-    margin-bottom: 50px;
-
-}
-
-.footer-logo {
-    grid-column: span 2;
-    display: flex;
-    justify-content: left;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr); /* Griglia di 12 colonne */
+    gap: 16px; /* Puoi regolare la distanza tra gli elementi */
+    align-items: center; /* Centra verticalmente il contenuto */
+    justify-items: center; /* Centra orizzontalmente il contenuto */
+    margin-left: 1rem; /* Distanza dal bordo */
+    margin-right: 1rem; /* Distanza dal bordo */
+    margin-bottom: 3rem;
 }
 
 .footer-logo-img {
-    width: 90px;
-    height: auto;
+    grid-column: span 1; /* Il logo occupa 4 colonne */
+    max-width: 100%; /* Imposta una larghezza massima del logo */
+    height: auto; /* Mantieni le proporzioni */
 }
 
-.footer-bottom {
-    grid-column: span 12;
-    text-align: center;
-    font-size: 14px;
-    font-weight: bold;
-    text-transform: uppercase;
+/* Sezione studenti */
+.student-section {
+    margin-top: 250px;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
+    margin-bottom: 100px;
 }
+
 
 .horizontal-gallery {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    gap: 10px;
-    margin: 100px 2vw;
+    column-gap: 1rem;
+    row-gap: 1rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
     background-color: black;
 }
 
@@ -455,28 +458,22 @@ s
     filter: grayscale(100%);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.student-card video {
+    display: block;     /* Rende il video un elemento a blocco */
+    margin: 0 auto;     /* Centra il blocco orizzontalmente */
+  }
 
 
 
 /* RESPONSIVE IPHONE*/
 
-@media (max-width: 530px) {
+@media (max-width: 768px) {
     #image-container, #magazine-container, #about-container {
         height: 500px;
+  
+    #titolo_semester_mobile {
+        display: block; 
+    }
     }
     #titolo_semester_mobile {
         display: block; 
@@ -509,18 +506,19 @@ s
     .menu-icon {
         display: block;
     }
+
     .rect-left,
     .rect-right {
-        width: calc(209px * 0.7);
-        height: calc(184px * 0.7);
+        width: calc(209px * 0.6);
+        height: calc(184px * 0.6);
         top: 50%;
         transform: translateY(-50%);
     }
 
     .rect-top,
     .rect-bottom {
-        width: calc(184px * 0.7);
-        height: calc(209px * 0.7);
+        width: calc(184px * 0.6);
+        height: calc(209px * 0.6);
     }  
     
         .rect-top {
@@ -550,16 +548,11 @@ s
             transform: translateY(-50%);
             position: absolute;
         }
-    
-      
-    
+
     .titolo_desktop {
         display: none;
     }
 
-    .titolo_mobile {
-        display: block;
-    }
 
     .titolo_sezione {
         font-size: 70px;
@@ -574,6 +567,11 @@ s
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
     }
+
+    .student-card video {
+        display: block;     /* Rende il video un elemento a blocco */
+        margin: 0 auto;     /* Centra il blocco orizzontalmente */
+      }
 
     .student-title {
         grid-column: span 2;
@@ -619,7 +617,8 @@ s
 
 
 #project {
-    margin-top: 250px;
+    margin-top: 50px;
+    margin-bottom: 50px;
     gap: 16px;
     align-items: end;
     margin-left: 20px;
@@ -651,11 +650,11 @@ s
         font-weight: 700;
         line-height: normal;
         letter-spacing: -1.6px;
-        margin-top: 100px;
+        margin-top: 0px;
 }
     .student-title{
         margin-bottom: 30px;
-        color:#FFF200
+        color:#FFF200;
         text-align: left;
         font-family: "KF Zuka";
         font-size: 40px;
@@ -738,6 +737,14 @@ s
     font-size: 18px;
     font-weight: 700;
 }
+
+
+.titolo_sezione {
+    font-size: 70px;
+    letter-spacing: -0.01em; 
+}
+
+
 
 
 }

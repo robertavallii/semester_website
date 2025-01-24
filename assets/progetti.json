@@ -1,0 +1,110 @@
+[
+    {
+      "id_progetto": "01",
+      "autore": "Arianna Chiodo",
+      "titolo_progetto": "Specimen Interattivo & Typetester Interattivo",
+      "categoria": "interactive projects",
+      "descrizione_progetto": "An interactive typetester will be developed to explore the font in an innovative way. Users will be able to interact with the KF Züka through the movement of their hands, detected by a webcam, adding a playful and sensorial dimension. The narrator avatar will be present to tell the story of the font and illustrate its characteristics and contexts of use. The specimen is an animated narrative journey revealing the origin and development of the font. Led by an avatar, representing the creator of KF Züka, it tells details about the creative process, enriching the user experience with dynamic animations showing unique applications and features.",
+      "immagine": "./images/image05.jpg"
+    },
+    {
+      "id_progetto": "02",
+      "autore": "Davide Torre",
+      "titolo_progetto": "Artifact Archive",
+      "categoria": "interactive projects",
+      "descrizione_progetto": "The project aims to show a selection of significant objects used in the magazine’s creative and production processes. These objects were subsequently recreated in 3D from detailed descriptions and dedicated prompts, thus simplifying the creation and organisation of the archive.",
+      "immagine": "./images/image05.jpg"
+    },
+    {
+      "id_progetto": "03",
+      "autore": "Dragan Radic",
+      "titolo_progetto": "AR SEMESTER",
+      "categoria": "interactive projects",
+      "descrizione_progetto": "An augmented reality app reveals the objects used to create the projects: by framing the pages with the mobile phone, 3D models emerge showing tools, materials and physical details related to the creative work. The AR experience turns reading into a visual exploration, making the elements behind each project visible, for an innovative and interactive approach."
+      ,"immagine": "./images/image05.jpg"},
+    {
+      "id_progetto": "04",
+      "autore": "Edoardo Pavoni",
+      "titolo_progetto": "OG Variable Font",
+      "categoria": "interactive projects",
+      "descrizione_progetto": "The project explores the hybrid of analogue and digital, rethinking the concept of the variable font. Through the AxiDraw, a font is redrawn with traditional drawing tools such as brushes, charcoals or pencils, transforming each stroke into a unique expression. The variability is not digital, but stems from the unpredictability of the analogue gesture mediated by the machine. An interactive site reveals this synergy, offering an immersive experience between man, machine and matter."
+      ,"immagine": "./images/image05.jpg"},
+    {
+      "id_progetto": "05",
+      "autore": "Andrea Gizzi",
+      "titolo_progetto": "SYNC",
+      "categoria": "interactive projects",
+      "descrizione_progetto": "The project reinterprets the Bauhaus Dances with an interaction between body, geometry and technology. Sensors placed on the body capture movements and transform them into inputs that generate kinetic and sound art in real time. Each gesture modifies geometric shapes and sounds, creating a dynamic dialogue between body and design. The live performance documenting this process becomes an immersive experience, where innovation merges with tradition, involving the audience in a continuous flow of movement, sound and form."
+      ,"immagine": "./images/image05.jpg"
+    },
+    {
+      "id_progetto": "06",
+      "autore": "Julian Tachelli",
+      "titolo_progetto": "Robotic hand",
+      "categoria": "interactive projects",
+      "descrizione_progetto": "The project combines digital art and technology through an innovative Photo Booth experience controlled by a sensory glove. Each finger of the glove is equipped with flex sensors that allow parameters such as ASCII font size, colour and other visual variables to be changed in real time, transforming the captured image into a unique artistic representation. The entire process, from visual manipulation to the capture of the photograph, is managed through finger movements, offering users an immersive and creative way to explore new expressive possibilities in the digital world."
+      ,"immagine": "./images/image05.jpg"
+    },
+    {
+      "id_progetto": "07",
+      "autore": "Lara Bernasconi",
+      "titolo_progetto": "Reading Movements",
+      "categoria": "interactive projects",
+      "descrizione_progetto": "The project is a platform exploring the work of two independent designers: Michelle Duong, interaction designer, and Tor Weibull, type designer. Through two videos, their methods, approaches and specific projects are explored: ‘Work Work Balance’, Michelle’s bachelor thesis, and Tor’s typeface Zuka. Each video, which can be accessed via a webpage, adopts a visual language inspired by the respective project, creating a unique dialogue between content and form of representation."
+      ,"immagine": "./images/image05.jpg"
+    },
+    {
+      "id_progetto": "08",
+      "autore": "Simone Scardovi",
+      "titolo_progetto": "Interface Project",
+      "categoria": "interactive projects",
+      "descrizione_progetto": "I created an innovative interactive interface that uses hand tracking to control the 3D animated faces of the people in my class. Each face, unique and recognisable, interacts directly with the user. When selected, the face tells the personal project of the individual it belongs to, using an AI-generated voice that mimics that of the student. The system automatically translates the original text from Italian into English, making the project accessible to an international audience.",
+      "immagine": "./images/image05.jpg"
+    },
+    {
+      "id_progetto": "09",
+      "autore": "Walter De Nicola",
+      "titolo_progetto": "Magazine Page Archive",
+      "categoria": "interactive projects",
+      "descrizione_progetto": "Magazine Page Archive is an organised archive that collects the pages of the Artichoke magazine, allowing specific content to be searched using filters. The aim is to facilitate access to information, offering intuitive and customisable navigation."
+      ,"immagine": "./images/image05.jpg"
+    },
+    {
+      "id_progetto": "10",
+      "autore": "Roberta Valli",
+      "titolo_progetto": "SEMESTER Website",
+      "categoria": "interactive projects",
+      "descrizione_progetto": "A responsive website created to represent the SEMESTER magazine, convey the mood of the project and narrate its main contents. Designed to be usable on desktop and mobile, the site is divided into different sections showing the works realised, describing the identity of the magazine and highlighting the contributions of the participants."
+      ,"immagine": "./images/image05.jpg"
+    },
+    {
+      "id_progetto": "11",
+      "autore": "Greta Bordoli, Luca Stocker Margherita Lavagnini",
+      "titolo_progetto": "DISCOMFORT TO CREATE BALANCE: INPUT→OUTPUT",
+      "categoria": "printed projects",
+      "immagine": "./images/image05.jpg"
+    },
+    {
+      "id_progetto": "12",
+      "autore": "Arianna Aprosio, Alessia Merletti, Luca dell'Agostino",
+      "titolo_progetto": "SY—FO",
+      "categoria": "printed projects",
+      "immagine": "./images/image05.jpg"
+    },
+    {
+      "id_progetto": "13",
+      "autore": "Gabriele Gianora, Elia Jacop]",
+      "titolo_progetto": "OLIVER GLYPHS DIARY",
+      "categoria": "printed projects",
+      "immagine": "./images/image05.jpg"
+    },
+    {
+      "id_progetto": "14",
+      "autore": "Greta Bordoli, Luca Stocker Margherita Lavagnini",
+      "titolo_progetto": "DISCOMFORT TO CREATE BALANCE: INPUT→OUTPUT",
+      "categoria": "printed projects",
+      "immagine": "./images/image05.jpg"
+    }
+
+  ]
+  

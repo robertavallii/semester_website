@@ -107,65 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-
-//3d
-        document.addEventListener('DOMContentLoaded', () => {
-          // Funzione per inizializzare il rendering 3D
-          function init3D(containerId, objPath) {
-            const container = document.getElementById(containerId);
-            const width = container.offsetWidth;
-            const height = container.offsetHeight;
-        
-            // Configura scena, camera e renderer
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
-            camera.position.z = 2;
-        
-            const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-            renderer.setSize(width, height);
-            renderer.setClearColor(0x000000, 0); // sfondo traspraente
-            container.appendChild(renderer.domElement);
-        
-            // Aggiungi luci
-            const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
-            scene.add(ambientLight);
-        
-            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
-            directionalLight.position.set(1, 1, 1).normalize();
-            scene.add(directionalLight);
-        
-            // Carica il modello .obj
-            const loader = new THREE.OBJLoader();
-            loader.load(
-              objPath,
-              (object) => {
-                object.scale.set(1.5, 1.5, 1.5); // scala del modello
-                object.position.set(0, 1, 0); // posizionamento del modello
-                scene.add(object);
-                animate(); // Avvia l'animazione
-              },
-              (xhr) => {
-                console.log(`Caricamento: ${(xhr.loaded / xhr.total) * 100}%`);
-              },
-              (error) => {
-                console.error('Errore durante il caricamento:', error);
-              }
-            );
-
-
-
-    // Funzione di animazione
-    function animate() {
-      requestAnimationFrame(animate);
-      renderer.render(scene, camera);
-    }
-  }
-
-  // Inizializza il rendering 3D nella card dello studente
-  init3D('student-3d-model', './assets/ritratti_3d/edoardo.obj'); 
-});
-
-
 // mouseover project
             document.addEventListener('DOMContentLoaded', () => {
                 const projectNames = document.querySelectorAll('.project-name');
