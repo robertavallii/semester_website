@@ -464,6 +464,49 @@ s
   }
 
 
+/*im preview project*/
+#image-preview-project {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 760px;
+    height: 530px;
+    background-size: cover;
+    background-position: center;
+    display: none;
+    pointer-events: none; /* Evita interferenze con il mouse */
+    z-index: 100;
+    border: 3px solid #FFF200;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+#preview-button {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #FFF200;
+    color: #000;
+    font-family: 'KFZuka-Variable', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    pointer-events: auto; /* Permette di cliccare sul bottone */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+#preview-button:hover {
+    background-color: #000;
+    color: #FFF200;
+}
+  
+
+
+
 
 /* RESPONSIVE IPHONE*/
 
