@@ -482,18 +482,21 @@ s
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 #preview-button {
+    width: 124px;
+    height: 34px;
+    flex-shrink: 0;
     position: absolute;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #FFF200;
+    background: rgba(0, 0, 0, 0.70);
     color: #000;
     font-family: 'KFZuka-Variable', sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 7px 12px;
     border: none;
-    border-radius: 5px;
+    border-radius: 0px;
     cursor: pointer;
     pointer-events: auto; /* Permette di cliccare sul bottone */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -504,8 +507,6 @@ s
     color: #FFF200;
 }
   
-
-
 
 
 /* RESPONSIVE IPHONE*/

@@ -1,16 +1,14 @@
+//animazione immagini
 document.addEventListener('DOMContentLoaded', () => {
-    // Variabili per l'animazione delle immagini
     let currentImageIndex = 0;
     const imagePaths = [];
-    const totalImages = 23; // Numero totale di immagini
+    const totalImages = 23;
     const imageFolder = './assets/immagini/animazione_jpg/';
 
-    // Carica i percorsi delle immagini
     for (let i = 1; i <= totalImages; i++) {
         imagePaths.push(`${imageFolder}image${i}.jpg`);
     }
 
-    // Crea le immagini nel contenitore
     function createImages() {
         const container = document.getElementById('image-container');
         if (!container) {
@@ -22,11 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const img = document.createElement('img');
             img.src = path;
             img.classList.add('image-slide');
-            if (index === 0) img.classList.add('active'); // Mostra la prima immagine
+            if (index === 0) img.classList.add('active');
             container.appendChild(img);
         });
 
-        // Adatta altezza container all'elemento animazione
         const animazione = document.getElementById('animazione');
         if (animazione) {
             container.style.height = `${animazione.offsetHeight}px`;
@@ -35,20 +32,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Funzione per cambiare l'immagine del carosello
     function changeImage() {
         const images = document.querySelectorAll('.image-slide');
         if (images.length === 0) return;
-        images[currentImageIndex].classList.remove('active');
+        images.forEach(img => img.classList.remove('active'));
         currentImageIndex = (currentImageIndex + 1) % images.length;
         images[currentImageIndex].classList.add('active');
     }
 
-    // Avvio dell'animazione
     createImages();
-    setInterval(changeImage, 2000); // Cambia immagine ogni 2 secondi
-
-    // Gestione del menu mobile
+    setInterval(changeImage, 2000);
+//menu nav
     const menuIcon = document.getElementById('menu-icon');
     const menuIconImg = menuIcon?.querySelector('img');
     const mobileNav = document.getElementById('mobile-nav');
@@ -56,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const hamburgerIcon = './assets/icon/menu_icon.svg';
     const closeIcon = './assets/icon/close_icon.svg';
 
-    // Apertura e chiusura del menu mobile
     if (menuIcon) {
         menuIcon.addEventListener('click', () => {
             mobileNav?.classList.toggle('active');
@@ -65,7 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Chiudi il menu cliccando sull'overlay
     if (menuOverlay) {
         menuOverlay.addEventListener('click', () => {
             mobileNav?.classList.remove('active');
@@ -74,7 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Chiudi il menu cliccando su un link
     if (mobileNav) {
         mobileNav.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
@@ -85,7 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Scorrimento fluido per i link
     document.querySelectorAll('.nav a').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -98,81 +88,90 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
-
-    
 });
 
 
- // Funzionalità anteprima progetto (STATIC POSITION)
- const projectNames = document.querySelectorAll('.project-name');
- const imagePreview = document.createElement('div');
- imagePreview.id = 'image-preview-project';
 
- const previewButton = document.createElement('button');
- previewButton.id = 'preview-button';
- previewButton.textContent = 'View Project';
- imagePreview.appendChild(previewButton);
- document.body.appendChild(imagePreview);
 
- // Stile statico dell'anteprima
- imagePreview.style.position = 'fixed';
- imagePreview.style.top = '50%';
- imagePreview.style.left = '50%';
- imagePreview.style.transform = 'translate(-50%, -50%)';
- imagePreview.style.width = '760px';
- imagePreview.style.height = '530px';
- imagePreview.style.backgroundSize = 'cover';
- imagePreview.style.backgroundPosition = 'center';
- imagePreview.style.display = 'none';
- imagePreview.style.zIndex = '1000';
- imagePreview.style.border = '3px solid #FFF200';
- imagePreview.style.borderRadius = '10px';
- imagePreview.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.5)';
- imagePreview.style.pointerEvents = 'none';
+    // Seleziona tutti gli elementi con la classe 'project-name'
+const projectNames = document.querySelectorAll('.project-name');
 
- previewButton.style.position = 'absolute';
- previewButton.style.bottom = '20px';
- previewButton.style.left = '50%';
- previewButton.style.transform = 'translateX(-50%)';
- previewButton.style.backgroundColor = '#FFF200';
- previewButton.style.color = '#000';
- previewButton.style.fontSize = '20px';
- previewButton.style.fontWeight = '700';
- previewButton.style.padding = '10px 20px';
- previewButton.style.border = 'none';
- previewButton.style.borderRadius = '5px';
- previewButton.style.cursor = 'pointer';
- previewButton.style.pointerEvents = 'auto';
+// Crea l'elemento di anteprima dell'immagine
+const imagePreview = document.createElement('div');
+imagePreview.id = 'image-preview-project';
 
- previewButton.addEventListener('mouseover', () => {
-     previewButton.style.backgroundColor = '#000';
-     previewButton.style.color = '#FFF200';
- });
+// Crea il pulsante di anteprima
+const previewButton = document.createElement('button');
+previewButton.id = 'preview-button';
+previewButton.textContent = 'View Project';
+imagePreview.appendChild(previewButton);
+document.body.appendChild(imagePreview);
 
- previewButton.addEventListener('mouseout', () => {
-     previewButton.style.backgroundColor = '#FFF200';
-     previewButton.style.color = '#000';
- });
+// Stili per l'anteprima dell'immagine
+Object.assign(imagePreview.style, {
+    position: 'fixed',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: '760px',
+    height: '530px',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    display: 'none',
+    zIndex: '1000',
+    border: '0px solid #FFF200',
+    borderRadius: '0px',
+    pointerEvents: 'auto',  // Cambiato per permettere l'interazione con l'elemento
+    boxShadow: 'none',
+});
 
- projectNames.forEach(project => {
-     project.addEventListener('mouseover', () => {
-         const imagePath = project.getAttribute('data-image');
-         imagePreview.style.backgroundImage = `url(${imagePath})`;
-         imagePreview.style.display = 'block';
+// Stili per il pulsante di anteprima
+Object.assign(previewButton.style, {
+    position: 'absolute',
+    bottom: '20px',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    backgroundColor: 'rgba(0, 0, 0, 0.70)',
+    color: '#FFF200',
+    fontSize: '15px',
+    fontWeight: '500',
+    padding: '10px 20px',
+    border: 'none',
+    borderRadius: '0px',
+    cursor: 'pointer',
+    pointerEvents: 'auto',
+    width: '154px',
+    height: '34px',
+});
 
-         // Imposta il nome del progetto nel pulsante
-         const projectName = project.textContent;
-         previewButton.textContent = `View ${projectName}`;
+// Effetto hover sul pulsante
+previewButton.addEventListener('mouseover', () => {
+    previewButton.style.backgroundColor = '#000';
+    previewButton.style.color = '#FFF200';
+});
 
-         // Imposta l'azione del bottone (modificabile per aprire link)
-         previewButton.onclick = () => {
-             alert(`You clicked on ${projectName}`);
-         };
-     });
+// Gestione dell'evento mouseover sugli elementi project-name
+projectNames.forEach(project => {
+    project.addEventListener('mouseover', () => {
+        const imagePath = project.getAttribute('data-image');
+        if (imagePath) {
+            imagePreview.style.backgroundImage = `url(${imagePath})`;
+            imagePreview.style.display = 'block';
+        }
+        previewButton.textContent = `View project`;
+        previewButton.onclick = () => {
+            alert(`You clicked on ${project.textContent}`);
+        };
+    });
+});
 
-     project.addEventListener('mouseout', () => {
-         imagePreview.style.display = 'none';
-     });
- });
+// Mantiene visibile l'anteprima finché il mouse è sopra di essa
+imagePreview.addEventListener('mouseover', () => {
+    imagePreview.style.display = 'block';
+});
 
+// Nasconde l'anteprima solo quando il mouse esce dall'elemento immagine-preview
+imagePreview.addEventListener('mouseout', () => {
+    imagePreview.style.display = 'none';
+});
 
