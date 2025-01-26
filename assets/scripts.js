@@ -90,7 +90,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Seleziona tutti gli elementi con la classe 'project-name'
+
+// Seleziona la sezione "project" e gli elementi con la classe 'project-name'
+const projectSection = document.getElementById('project');
 const projectNames = document.querySelectorAll('.project-name');
 
 // Crea l'elemento overlay per lo sfondo scuro trasparente
@@ -105,10 +107,10 @@ Object.assign(overlay.style, {
     left: '0',
     width: '100vw',
     height: '100vh',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',  // Livello nero trasparente al 50%
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
     display: 'none',
-    zIndex: '999',  // Dietro l'anteprima dell'immagine
-    pointerEvents: 'none',  // Evita che l'overlay blocchi altri elementi
+    zIndex: '999',
+    pointerEvents: 'none',
 });
 
 // Crea l'elemento di anteprima dell'immagine
@@ -119,7 +121,6 @@ document.body.appendChild(imagePreview);
 // Crea il pulsante di anteprima
 const previewButton = document.createElement('button');
 previewButton.id = 'preview-button';
-previewButton.textContent = 'View Project';
 imagePreview.appendChild(previewButton);
 
 // Stili per l'anteprima dell'immagine
@@ -134,11 +135,17 @@ Object.assign(imagePreview.style, {
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
     display: 'none',
-    zIndex: '1001',  // Sopra l'overlay
+    zIndex: '1001',
     border: '0px solid #FFF200',
     borderRadius: '0px',
     pointerEvents: 'auto',
     boxShadow: 'none',
+    outline: 'none',
+    textShadow: 'none',
+    appearance: 'none',
+    filter: 'none',
+    webkitAppearance: 'none',
+    mozAppearance: 'none',
 });
 
 // Stili per il pulsante di anteprima aggiornati
@@ -147,45 +154,82 @@ Object.assign(previewButton.style, {
     bottom: '20px',
     left: '50%',
     transform: 'translateX(-50%)',
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',  // Sfondo nero con trasparenza aggiungere 0.7 dopo ultimo zero
-    color: '#FFF200',  // Testo giallo
-    fontSize: '15px',
-    fontWeight: '500',
-    padding: '10px 20px',
+    backgroundColor: '#FFF200',
+    color: 'rgba(0, 0, 0)',
+    fontSize: '14px',
+    fontWeight: '700',
+    padding: '14px 16px',
     border: 'none',
     borderRadius: '0px',
-    cursor: 'default',  // Nessun effetto di hover
+    cursor: 'pointer',
     pointerEvents: 'auto',
-    width: '154px',
+    width: 'auto',
     height: '34px',
+    boxShadow: 'none',
+    outline: 'none',
+    textShadow: 'none',
+    transition: 'background-color 0.3s ease-in-out, color 0.3s ease-in-out',
+    display: 'flex',          // Permette il centramento
+    alignItems: 'center',      // Allinea verticalmente il testo al centro
+    justifyContent: 'center',  // Allinea orizzontalmente il testo al centro
+    textAlign: 'center',       // Assicura che il testo sia centrato
+    lineHeight: 'normal',       // Previene problemi di altezza
+    textTransform: 'uppercase' // Trasforma il testo in maiuscolo
+
 });
 
-// Rimuoviamo l'evento di hover per evitare cambi di stile
-previewButton.addEventListener('mouseover', (e) => {
-    e.stopPropagation(); // Impedisce modifiche indesiderate
+// Effetto hover sul bottone
+previewButton.addEventListener('mouseenter', () => {
+    previewButton.style.backgroundColor = 'rgba(0, 0, 0)';
+    previewButton.style.color = '#FFF200';
 });
+
+previewButton.addEventListener('mouseleave', () => {
+    previewButton.style.backgroundColor = '#FFF200';
+    previewButton.style.color = 'rgba(0, 0, 0)';
+});
+
+// Precaricamento delle immagini per evitare ritardi
+const preloadedImages = {};
+projectNames.forEach(project => {
+    const imagePath = project.getAttribute('data-image');
+    if (imagePath) {
+        const img = new Image();
+        img.src = imagePath;
+        preloadedImages[imagePath] = img;
+    }
+});
+
+// Funzione per mostrare l'anteprima solo nella sezione project
+function isCursorInProjectSection(event) {
+    const rect = projectSection.getBoundingClientRect();
+    return (
+        event.clientX >= rect.left &&
+        event.clientX <= rect.right &&
+        event.clientY >= rect.top &&
+        event.clientY <= rect.bottom
+    );
+}
 
 // Gestione dell'evento mouseover sugli elementi project-name
-projectNames.forEach(project => {
-    project.addEventListener('mouseover', () => {
-        const imagePath = project.getAttribute('data-image');
-        if (imagePath) {
-            const img = new Image();
-            img.src = imagePath;
-            img.onload = () => {
+projectNames.forEach((project, index) => {
+    project.addEventListener('mouseover', (event) => {
+        if (isCursorInProjectSection(event)) {
+            const imagePath = project.getAttribute('data-image');
+            if (preloadedImages[imagePath]) {
+                const img = preloadedImages[imagePath];
+
                 let width = img.width;
                 let height = img.height;
 
-                // Determina se l'immagine è in orizzontale o verticale
+                // Adatta dimensioni immagine
                 if (width > height) {
-                    // Immagine orizzontale, limitata a 800px di larghezza
                     if (width > 1000) {
                         const aspectRatio = height / width;
                         width = 1000;
                         height = width * aspectRatio;
                     }
                 } else {
-                    // Immagine verticale, limitata a 800px di altezza
                     if (height > 800) {
                         const aspectRatio = width / height;
                         height = 800;
@@ -197,16 +241,24 @@ projectNames.forEach(project => {
                 imagePreview.style.height = `${height}px`;
                 imagePreview.style.backgroundImage = `url(${imagePath})`;
 
-                // Mostra l'overlay e l'anteprima solo quando il mouse entra
+                // Mostra l'overlay e l'anteprima solo se siamo nella sezione project
                 overlay.style.display = 'block';
                 imagePreview.style.display = 'block';
-            };
+
+                // Imposta il testo del pulsante con il nome del progetto
+                const projectName = project.textContent.trim();
+                previewButton.textContent = `View ${projectName} project`;
+            }
         }
-        previewButton.textContent = `View project`;
-        previewButton.onclick = () => {
-            alert(`You clicked on ${project.textContent}`);
-        };
     });
+
+    // Nasconde l'anteprima quando si esce dall'ultimo elemento
+    if (index === projectNames.length - 1) {
+        project.addEventListener('mouseleave', () => {
+            imagePreview.style.display = 'none';
+            overlay.style.display = 'none';
+        });
+    }
 });
 
 // Nasconde l'anteprima e l'overlay quando il mouse esce dall'immagine
@@ -219,4 +271,12 @@ imagePreview.addEventListener('mouseout', () => {
 imagePreview.addEventListener('mouseover', () => {
     imagePreview.style.display = 'block';
     overlay.style.display = 'block';
+});
+
+// Nasconde l'overlay se si clicca fuori dall'immagine
+overlay.addEventListener('click', (e) => {
+    if (!imagePreview.contains(e.target)) {
+        imagePreview.style.display = 'none';
+        overlay.style.display = 'none';
+    }
 });

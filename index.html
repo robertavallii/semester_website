@@ -57,10 +57,9 @@
 <!-- SEZIONE RICHIESTA MAGAZINE -->
     <div id="magazine">
         <div class="image-container-magazine" id="image-container-magazine">
-        <img src="assets/magazine.jpg" alt="Magazine Image" class="magazine-image" />
-    </div>
-        <h1 class="titolo_sezione">MAGAZINE</h1>
-</div>
+            <video src="assets/immagini/semester_3d.mp4" class="magazine-video" autoplay muted loop>
+            </video>        <h1 class="titolo_sezione">MAGAZINE</h1>
+        </div></div>
 
 
 <!-- SEZIONE PROGETTI INDICE -->
@@ -195,7 +194,7 @@
                 </div>
             </div>
             <div class="student-card">
-                <video src="assets/video_volti/nuovi_volti_3d_colori/julian_si_volto_colori.mp4" autoplay muted loop style="filter: grayscale(0%);"></video>            
+                <video src="assets/video_volti/nuovi_volti_3d_colori/julian_volto_colori.mp4" autoplay muted loop style="filter: grayscale(0%);"></video>            
                 <div class="student-info">
                     <h3 class="student-card-title">Julian Tachelli</h3>
                     <p class="student-card-subtitle">Creative Director / AR Cover</p>
@@ -280,10 +279,73 @@
     </footer>
     
 <script src="./assets/scripts.js"></script>
-    
 <script>
 
+document.addEventListener('DOMContentLoaded', () => {
+    const videos = document.querySelectorAll('.student-card video');
+    const studentSection = document.querySelector('.student-section');
+
+    let sectionWidth = studentSection.offsetWidth;
+    let sectionLeft = studentSection.getBoundingClientRect().left;
+    let targetTime = 0;
+    let animationFrameId = null;
+
+    function updateVideos() {
+        videos.forEach(video => {
+            video.currentTime += (targetTime - video.currentTime) * 0.2;  // Smooth interpolation
+        });
+        animationFrameId = requestAnimationFrame(updateVideos);
+    }
+
+    function handleMouseMove(event) {
+        const mouseX = event.clientX - sectionLeft;
+        const progress = Math.max(0, Math.min(mouseX / sectionWidth, 1)); // Normalized value (0-1)
+        targetTime = progress * videos[0].duration;
+
+        if (!animationFrameId) {
+            animationFrameId = requestAnimationFrame(updateVideos);
+        }
+    }
+
+    studentSection.addEventListener('mousemove', handleMouseMove);
+
+    studentSection.addEventListener('mouseleave', () => {
+        cancelAnimationFrame(animationFrameId);
+        animationFrameId = null;
+    });
+
+    window.addEventListener('resize', () => {
+        sectionWidth = studentSection.offsetWidth;
+        sectionLeft = studentSection.getBoundingClientRect().left;
+    });
+
+    videos.forEach(video => {
+        video.pause();
+        video.muted = true;
+        video.controls = false;
+    });
+
+
+
+});
+
+
+const sections = document.querySelectorAll('.section-to-load');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1 });
+
+sections.forEach(section => observer.observe(section));
 </script>
+
+
+
 
 </body>
 </html>

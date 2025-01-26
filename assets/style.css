@@ -88,7 +88,7 @@ html, body {
 
 
 #image-container img,
-.image-container-magazine img,
+.image-container-magazine video,
 .image-container-about img {
     position: absolute;
     top: 50%;
@@ -100,6 +100,12 @@ html, body {
     height: 100%; 
 }
 
+#magazine {
+    position: relative;
+    width: 100%;
+    min-height: 100vh; 
+    overflow: visible;
+}
 
 #image-container {
     position: absolute;
@@ -199,7 +205,14 @@ html, body {
 #project{
     margin-left: 1rem; 
     margin-right: 1rem; 
+        margin-top: 200px; /* Distanza di 200px dalla fine di #magazine */
+    position: relative;
+    width: 100%;
+    min-height: 100vh; /* Altezza della sezione progetti */
+
 }
+
+/* Allineamento testo nella sezione */
 .titolo_sezione {
     position: absolute;
     font-size: 135px;
@@ -211,7 +224,6 @@ html, body {
     z-index: 5;
     text-align: center;
 }
-
 .project-title {
     font-size: 55px;
     font-weight: bold;
@@ -219,6 +231,10 @@ html, body {
     margin-top: 100px;
 }
 
+
+.project-title.interactive{
+    margin-top: 0px;
+}
 .project-title.interactive, .project-title.print {
     color: #ffffff;
     
@@ -339,6 +355,7 @@ html, body {
     object-fit: cover; /* Ritaglio per riempire il box */
     aspect-ratio: 1 / 1; /* Mantieni un formato quadrato */
     object-fit: cover; /* Ritaglio del video se necessario */
+    
 }
 
 .footer {
@@ -350,6 +367,7 @@ html, body {
     margin-left: 1rem; /* Distanza dal bordo */
     margin-right: 1rem; /* Distanza dal bordo */
     margin-bottom: 3rem;
+    margin-top: 50px;
 }
 
 .footer-logo-img {
@@ -506,7 +524,12 @@ s
     background-color: #000;
     color: #FFF200;
 }
-  
+
+
+
+
+
+
 
 
 /* RESPONSIVE IPHONE*/
