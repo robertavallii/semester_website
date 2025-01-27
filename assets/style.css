@@ -229,7 +229,6 @@ html, body {
     margin-right: 1rem; 
     margin-top: 50px; /* Distanza di 200px dalla fine di #magazine */
     position: relative;
-    width: 100%;
     min-height: 100vh; /* Altezza della sezione progetti */
 
 }
@@ -308,7 +307,7 @@ html, body {
 
 /* Sezione studenti */
 .student-section {
-    margin-top: 250px;
+    margin-top: 100px;
     margin-right: 1rem;
     margin-left: 1rem;
     display: grid;
@@ -549,15 +548,10 @@ s
     color: #FFF200;
 }
 
-
-.gallery-image {
-    transition: transform 0.3s ease-in-out; /* Aggiunge una transizione morbida */
-    cursor: pointer; /* Cambia il cursore per indicare l'interattività */
+.gallery-item {
+    overflow: hidden; /* Previene lo sforamento dell'immagine fuori dal contenitore */
 }
 
-.gallery-image:hover {
-    transform: scale(1.1); /* Effetto di zoom al 110% */
-}
 
 
 @media (max-width: 1131px) {
@@ -575,6 +569,9 @@ s
     }
 
 }
+
+
+
 
 
 /* RESPONSIVE IPHONE*/
@@ -598,6 +595,20 @@ s
     .mobile-nav {
         display: none;
     }
+
+
+
+    @media (max-width: 768px) {
+    .image-container-magazine {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;  /* Altezza completa della viewport */
+        width: 100%;
+        position: relative;
+    }
+
+}
 
     .mobile-nav.active {
         display: flex;
@@ -694,10 +705,7 @@ s
             height: 100%; 
         }
         
-        .image-container-magazine video{
-            transform: scale(70%);
-        }
-
+     
         
         .image-container-magazine {
             display: flex;
@@ -725,6 +733,7 @@ s
     .student-section {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
+
     }
 
     .student-card video {
@@ -747,7 +756,7 @@ s
     }
 
     .mobile-nav {
-       margin-top: 50px;
+       margin-top: 0px;
     }
     
 .mobile-nav a{
@@ -763,7 +772,7 @@ s
 }
 
 .student-section {
-    margin-top: 250px;
+    margin-top: 100px;
     display: grid;
     gap: 16px;
     background-color: black;
@@ -812,8 +821,8 @@ s
         margin-top: 0px;
 }
     .student-title{
-        margin-bottom: 30px;
-        color:#FFF200;
+        margin-bottom: 10px;
+        color:#ffffff;
         text-align: left;
         font-family: "KF Zuka";
         font-size: 40px;
@@ -830,36 +839,30 @@ s
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
-    width: 100%;
     align-items: end;
 }
 
-.footer-logo {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-}
 
 .footer-logo-img {
-    width: 100px;
-    height: auto;
+    grid-column-start: 2 ; /* Il logo occupa 4 colonne */
+    max-width: 90%; /* Imposta una larghezza massima del logo */
+    height: auto; /* Mantieni le proporzioni */
 }
 
-.footer-bottom {
-    grid-column: span 12;
-    text-align: center;
-    font-size: 14px;
-    font-weight: bold;
-    text-transform: uppercase;
+
+
+.footer-logo-img {
+    grid-column: span 2; /* Il logo occupa 4 colonne */
+    max-width: 80%; /* Imposta una larghezza massima del logo */
+    height: auto; /* Mantieni le proporzioni */
 }
+
 .horizontal-gallery {
     grid-template-columns: 1fr; 
     gap: 0;
 }
 
 .gallery-image {
-    width: 100%; 
-    margin: 0; 
     display: block;
     object-fit: cover;
 }
@@ -873,9 +876,8 @@ s
     display: grid;
     grid-template-columns: repeat(2, 1fr); 
     gap: 16px; 
-    width: 100%; 
-    margin-left: 30px;
-    margin-right: 30px;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 .about-paragraph-1,
@@ -887,11 +889,13 @@ s
 }
 
 .about-paragraph-1 {
-    font-size: 22px;
-    font-weight: 900;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 30px;
 }
 
 .about-paragraph-2 {
+    
     font-size: 18px;
     font-weight: 700;
 }
@@ -901,8 +905,36 @@ s
     font-size: 60px;
     letter-spacing: -0.01em; 
 }
+ /* Assicura che il contenitore magazine sia centrato */
+ #magazine {
+    padding: 0 1rem; /* Aggiunge margini ai lati */
+    margin: 0 auto;  /* Centra orizzontalmente */
+    max-width: 100%; /* Impedisce overflow */
+}
 
+.image-container-magazine {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - 2rem); /* Tiene conto dei margini */
+    margin: 0 auto;
+}
 
+.image-container-magazine video {
+    width: 100%;  /* Occupa l'intera larghezza del contenitore */
+    max-height: 90vw;  /* Impedisce di superare il viewport */
+    margin: 0 auto;
+    display: block;
+}
 
+#about-logo-nav {
+        width: 80px;  /* Imposta la larghezza desiderata */
+        height: auto;  /* Mantiene le proporzioni originali */
+        max-width: 100%;  /* Assicura che l'immagine sia responsive */
+        display: block;  /* Evita eventuali spazi indesiderati sotto l'immagine */
+        margin-bottom: 100 auto;  /* Centra l'immagine orizzontalmente */
+        padding-bottom: 10px;
+
+}
 
 }
