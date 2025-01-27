@@ -1,8 +1,7 @@
-//animazione immagini
 document.addEventListener('DOMContentLoaded', () => {
     let currentImageIndex = 0;
     const imagePaths = [];
-    const totalImages = 23;
+    const totalImages = 31;
     const imageFolder = './assets/immagini/animazione_jpg/';
 
     for (let i = 1; i <= totalImages; i++) {
@@ -41,8 +40,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     createImages();
-    setInterval(changeImage, 2000);
-//menu nav
+    setInterval(changeImage, 500);
+
+    // Menu nav handling
     const menuIcon = document.getElementById('menu-icon');
     const menuIconImg = menuIcon?.querySelector('img');
     const mobileNav = document.getElementById('mobile-nav');
@@ -54,6 +54,8 @@ document.addEventListener('DOMContentLoaded', () => {
         menuIcon.addEventListener('click', () => {
             mobileNav?.classList.toggle('active');
             menuOverlay?.classList.toggle('active');
+            menuOverlay.style.transform = mobileNav?.classList.contains('active') ? 'translateX(0)' : 'translateX(-100%)';
+            menuOverlay.style.transition = 'transform 0.5s ease-in-out';
             menuIconImg.src = mobileNav?.classList.contains('active') ? closeIcon : hamburgerIcon;
         });
     }
@@ -62,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         menuOverlay.addEventListener('click', () => {
             mobileNav?.classList.remove('active');
             menuOverlay.classList.remove('active');
+            menuOverlay.style.transform = 'translateX(-100%)';
             menuIconImg.src = hamburgerIcon;
         });
     }
@@ -71,6 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
             link.addEventListener('click', () => {
                 mobileNav.classList.remove('active');
                 menuOverlay?.classList.remove('active');
+                menuOverlay.style.transform = 'translateX(-100%)';
                 menuIconImg.src = hamburgerIcon;
             });
         });
@@ -78,17 +82,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.nav a').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').slice(1);
-            const targetSection = document.getElementById(targetId);
-
-            targetSection?.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start',
-            });
+            const href = this.getAttribute('href');
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                const targetId = href.substring(1);
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start',
+                    });
+                }
+            }
         });
     });
 });
+
+
 
 
 // Seleziona la sezione "project" e gli elementi con la classe 'project-name'

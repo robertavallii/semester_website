@@ -14,7 +14,7 @@
 
 html, body {
     overflow-x: hidden;
-    width: 100vw;
+
     padding: 0;
     height: 100%;
     font-family: 'KFZuka-Variable', sans-serif;
@@ -69,6 +69,21 @@ html, body {
 }
 
 
+#about-logo-link {
+    grid-column: 3 / 4;  /* Posizionamento al centro (terza colonna su cinque) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Altezza pari al contenitore nav */
+}
+
+/* Imposta la dimensione dell'immagine del logo */
+#about-logo-link img {
+    max-height: 100%; /* Occupa tutta l'altezza del contenitore */
+    max-width: 50px;  /* Si ridimensiona mantenendo le proporzioni */
+    object-fit: contain; /* Garantisce il mantenimento delle proporzioni senza tagli */
+}
+
 
 .image-slide {
     position: absolute;
@@ -100,12 +115,19 @@ html, body {
     height: 100%; 
 }
 
+
+
 #magazine {
     position: relative;
     width: 100%;
     min-height: 100vh; 
     overflow: visible;
 }
+.image-container-magazine video{
+    transform: 1.9;
+}
+
+
 
 #image-container {
     position: absolute;
@@ -205,7 +227,7 @@ html, body {
 #project{
     margin-left: 1rem; 
     margin-right: 1rem; 
-        margin-top: 200px; /* Distanza di 200px dalla fine di #magazine */
+    margin-top: 50px; /* Distanza di 200px dalla fine di #magazine */
     position: relative;
     width: 100%;
     min-height: 100vh; /* Altezza della sezione progetti */
@@ -223,6 +245,7 @@ html, body {
     transform: translate(-50%, -50%);
     z-index: 5;
     text-align: center;
+    letter-spacing: -4.5px
 }
 .project-title {
     font-size: 55px;
@@ -336,15 +359,16 @@ html, body {
   
 
   .student-card-title {
+    text-align: left;
     margin-top: 20px;
     font-size: 18px; /* Incrementa leggermente la dimensione del testo */
-    font-weight: 600; /* Rende il testo leggermente meno spesso */
+    font-weight: 500; /* Rende il testo leggermente meno spesso */
     color: #ffffff; /* Cambia il colore del testo */
 }
 
 .student-card-subtitle {
     font-size: 14px; /* Adatta la dimensione del sottotitolo */
-    font-style: italic; /* Aggiunge uno stile corsivo */
+    font-weight: 400; /* Rende il testo leggermente meno spesso */
     color: #FFFFFF; /* Mantiene il colore bianco */
 }
 
@@ -366,8 +390,8 @@ html, body {
     justify-items: center; /* Centra orizzontalmente il contenuto */
     margin-left: 1rem; /* Distanza dal bordo */
     margin-right: 1rem; /* Distanza dal bordo */
-    margin-bottom: 3rem;
-    margin-top: 50px;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
 }
 
 .footer-logo-img {
@@ -378,7 +402,7 @@ html, body {
 
 /* Sezione studenti */
 .student-section {
-    margin-top: 250px;
+    margin-top: 100px;
     margin-right: 1rem;
     margin-left: 1rem;
     display: grid;
@@ -526,10 +550,31 @@ s
 }
 
 
+.gallery-image {
+    transition: transform 0.3s ease-in-out; /* Aggiunge una transizione morbida */
+    cursor: pointer; /* Cambia il cursore per indicare l'interattività */
+}
+
+.gallery-image:hover {
+    transform: scale(1.1); /* Effetto di zoom al 110% */
+}
 
 
+@media (max-width: 1131px) {
+    #image-container, 
+    #magazine-container, 
+    #about-container {
+        height: 500px;
+    }
 
+    #titolo_semester_mobile {
+        display: block; 
+    }
+    .titolo_desktop {
+        display: none;
+    }
 
+}
 
 
 /* RESPONSIVE IPHONE*/
@@ -541,13 +586,13 @@ s
     #titolo_semester_mobile {
         display: block; 
     }
+
     }
     #titolo_semester_mobile {
         display: block; 
     }
     #animazione, #magazine, #about  {
-        height: 100vh; 
-        width: 100%; 
+        height: 100vh;
         background-color: black; 
     }    
     .mobile-nav {
@@ -565,6 +610,24 @@ s
         .menu-overlay.active {
             display: block;
         }
+
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: -100%;  /* Nasconde l'overlay fuori dallo schermo */
+            width: 100%;
+            height: 100%;
+            background-color: #FFF200;
+            opacity: 0.9;
+            z-index: 99;
+            transition: left 0.5s ease-in-out; /* Effetto di transizione */
+        }
+        
+        .menu-overlay.active {
+            left: 0; /* Quando attivo, sposta l'overlay a sinistra */
+        }
+
 
     .grid-container {
         grid-template-columns: repeat(2, 1fr);
@@ -616,13 +679,42 @@ s
             position: absolute;
         }
 
+
+
+        #image-container img,
+        .image-container-magazine video,
+        .image-container-about img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: cover; 
+            object-position: center; 
+            width: 100%;
+            height: 100%; 
+        }
+        
+        .image-container-magazine video{
+            transform: scale(70%);
+        }
+
+        
+        .image-container-magazine {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Altezza schermo intero */
+            width: 100%;
+        }
+
+
     .titolo_desktop {
         display: none;
     }
 
 
     .titolo_sezione {
-        font-size: 70px;
+        font-size: 60px;
         letter-spacing: -0.01em; 
     }
 
@@ -732,7 +824,6 @@ s
 }
 
 
-
 /* Footer */
 .footer {
     background-color: #000;
@@ -807,7 +898,7 @@ s
 
 
 .titolo_sezione {
-    font-size: 70px;
+    font-size: 60px;
     letter-spacing: -0.01em; 
 }
 
