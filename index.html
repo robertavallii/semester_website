@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SEMESTER</title>
     <link rel="stylesheet" href="./assets/style.css" />
+    <link rel="icon" href="./assets/logo/logo_g.png" type="image/x-icon">
+
 </head>
 <body>
 
@@ -15,8 +17,9 @@
         <nav class="nav">
             <a href="#magazine">magazine</a>
             <a href="#project">project</a>
-            <a href=></a>
-            <a href="about.html" onclick="return true;">ABOUT</a>
+            <a href="index.html" id="about-logo-link">
+                <img src="assets/logo/logo_g.png" alt="About Page">
+            </a>            <a href="about.html" onclick="return true;">ABOUT</a>
             <a href="mailto:valliroberta8@gmail.com">Contact</a>
         </nav>
 
@@ -31,8 +34,8 @@
                 <img src="assets/logo/logo_n.svg" alt="About Page" id="about-logo-nav">
             </a>    
                     <a href="#magazine">MAGAZINE</a>
-            <a href="#project">PROJECT</a>
-            <a href="#about">ABOUT</a>
+            <a href="#about.html#project">PROJECT</a>
+            <a href="about.html#about">ABOUT</a>
             <a href="mailto:valliroberta8@gmail.com">CONTACT</a>
         </div>
         </div>
@@ -289,68 +292,105 @@
 <script src="assets/scripts_mobile.js"></script>
 
 <script>
+    //script volti
     document.addEventListener('DOMContentLoaded', () => {
-    if (window.innerWidth <= 768) { // Verifica se siamo su mobile
-        const studentVideos = document.querySelectorAll('.student-card video');
+    const studentVideos = document.querySelectorAll('.student-card video');
+    const playbackSpeed = 0.5;  
 
+    function startAllVideos() {
         studentVideos.forEach(video => {
-            let touchStartX = 0;
-            let isSwiping = false;
-            let grayscaleRemoved = false;
-            let initialPosition = 0; // Salva la posizione iniziale del video
+            video.currentTime = 0;  
+            video.muted = true;    
+            video.loop = true;     
+            video.playbackRate = playbackSpeed;  
+            video.play();          
+        });
+    }
 
-            video.addEventListener('touchstart', (event) => {
-                touchStartX = event.touches[0].clientX;
-                isSwiping = true;
+    startAllVideos(); 
 
-        
-                // Salva la posizione iniziale solo se è il primo tocco
-                if (video.currentTime === 0) {
-                    initialPosition = video.currentTime;
-                }
+    if (window.innerWidth > 768) {
+        // Per Desktop
+        studentVideos.forEach(video => {
+            let playingForward = true;
+            let reverseInterval;
+
+            video.addEventListener('mouseenter', () => {
+                video.pause();  
+                video.style.filter = 'none'; 
             });
 
-            video.addEventListener('touchmove', (event) => {
-                if (!isSwiping) return;
+            video.addEventListener('mousemove', (event) => {
+                const rect = video.getBoundingClientRect();
+                const mouseX = event.clientX - rect.left;
 
-                let touchX = event.touches[0].clientX;
-                let videoRect = video.getBoundingClientRect();
-                let relativeTouchX = touchX - videoRect.left;
-
-                // Limita i valori all'interno del video
-                if (relativeTouchX < 0) relativeTouchX = 0;
-                if (relativeTouchX > videoRect.width) relativeTouchX = videoRect.width;
-
-                // Calcola il nuovo tempo in base alla posizione del tap rispetto al video
-                let newTime = (relativeTouchX / videoRect.width) * video.duration;
-                video.currentTime = newTime;
+                // Calcola il nuovo tempo con una transizione fluida
+                const newTime = (mouseX / rect.width) * video.duration;
+                video.style.transition = 'none';
+                requestAnimationFrame(() => {
+                    video.currentTime = newTime;
+                });
             });
 
-            video.addEventListener('touchend', () => {
-                isSwiping = false;
+            video.addEventListener('mouseleave', () => {
+                video.play();  
+                video.style.filter = 'grayscale(100%)';  
+            });
 
+            video.addEventListener('ended', () => {
+                playingForward = false;
+                reversePlayback(video);
+            });
 
-                // Torna alla posizione iniziale se non viene toccato per un po'
-                setTimeout(() => {
-                    if (!isSwiping) {
-                        video.currentTime = initialPosition;
+            function reversePlayback(video) {
+                cancelAnimationFrame(reverseInterval);
+                function step() {
+                    if (!playingForward && video.currentTime > 0) {
+                        video.currentTime -= 0.05; 
+                        reverseInterval = requestAnimationFrame(step);
+                    } else {
+                        playingForward = true;
+                        video.play();
                     }
-                }, 3000); // Dopo 3 secondi di inattività torna all'inizio
+                }
+                step();
+            }
+        });
+    } else {
+
+        let isDragging = false;
+
+        document.querySelector('.student-section').addEventListener('touchstart', () => {
+            studentVideos.forEach(v => v.style.filter = 'none'); 
+        });
+
+        document.querySelector('.student-section').addEventListener('touchmove', (event) => {
+            if (!isDragging) return;
+            let touchX = event.touches[0].clientX;
+            studentVideos.forEach(video => {
+                let rect = video.getBoundingClientRect();
+                let relativeTouchX = touchX - rect.left;
+                relativeTouchX = Math.max(0, Math.min(relativeTouchX, rect.width));
+                let newTime = (relativeTouchX / rect.width) * video.duration;
+                requestAnimationFrame(() => {
+                    video.currentTime = newTime;
+                });
             });
         });
 
-        // Aggiungi evento per rilevare tap esterno e ripristinare il video
-        document.addEventListener('touchstart', (event) => {
-            studentVideos.forEach(video => {
-                if (!video.contains(event.target)) {
+        document.querySelector('.student-section').addEventListener('touchend', () => {
+            isDragging = false;
+            setTimeout(() => {
+                studentVideos.forEach(video => {
                     video.style.filter = 'grayscale(100%)';
-                    video.currentTime = 0;  // Riporta il video all'inizio
-                    grayscaleRemoved = false;
-                }
-            });
+                    video.currentTime = 0;
+                });
+            }, 3000);
         });
     }
 });
+
+
 
     </script>
     

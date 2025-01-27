@@ -70,18 +70,18 @@ html, body {
 
 
 #about-logo-link {
-    grid-column: 3 / 4;  /* Posizionamento al centro (terza colonna su cinque) */
+    grid-column: 3 / 4;  
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%; /* Altezza pari al contenitore nav */
+    height: 100%; 
 }
 
-/* Imposta la dimensione dell'immagine del logo */
+
 #about-logo-link img {
-    max-height: 100%; /* Occupa tutta l'altezza del contenitore */
-    max-width: 50px;  /* Si ridimensiona mantenendo le proporzioni */
-    object-fit: contain; /* Garantisce il mantenimento delle proporzioni senza tagli */
+    max-height: 100%;
+    max-width: 50px; 
+    object-fit: contain; 
 }
 
 
@@ -227,9 +227,9 @@ html, body {
 #project{
     margin-left: 1rem; 
     margin-right: 1rem; 
-    margin-top: 50px; /* Distanza di 200px dalla fine di #magazine */
+    margin-top: 50px; 
     position: relative;
-    min-height: 100vh; /* Altezza della sezione progetti */
+    min-height: 100vh;
 
 }
 
@@ -360,43 +360,43 @@ html, body {
   .student-card-title {
     text-align: left;
     margin-top: 20px;
-    font-size: 18px; /* Incrementa leggermente la dimensione del testo */
-    font-weight: 500; /* Rende il testo leggermente meno spesso */
-    color: #ffffff; /* Cambia il colore del testo */
+    font-size: 18px; 
+    font-weight: 500; 
+    color: #ffffff; 
 }
 
 .student-card-subtitle {
-    font-size: 14px; /* Adatta la dimensione del sottotitolo */
-    font-weight: 400; /* Rende il testo leggermente meno spesso */
-    color: #FFFFFF; /* Mantiene il colore bianco */
+    font-size: 14px; 
+    font-weight: 400;
+    color: #FFFFFF; 
 }
 
 
 .student-card video {
-    width: 90%; /* Larghezza del box */
-    height: auto; /* Altezza proporzionale */
-    object-fit: cover; /* Ritaglio per riempire il box */
-    aspect-ratio: 1 / 1; /* Mantieni un formato quadrato */
-    object-fit: cover; /* Ritaglio del video se necessario */
+    width: 90%; 
+    height: auto;
+    object-fit: cover; 
+    aspect-ratio: 1 / 1; 
+    object-fit: cover;
     
 }
 
 .footer {
     display: grid;
-    grid-template-columns: repeat(12, 1fr); /* Griglia di 12 colonne */
-    gap: 16px; /* Puoi regolare la distanza tra gli elementi */
-    align-items: center; /* Centra verticalmente il contenuto */
-    justify-items: center; /* Centra orizzontalmente il contenuto */
-    margin-left: 1rem; /* Distanza dal bordo */
-    margin-right: 1rem; /* Distanza dal bordo */
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
+    align-items: center; 
+    justify-items: center;
+    margin-left: 1rem; 
+    margin-right: 1rem; 
     margin-bottom: 1rem;
     margin-top: 1rem;
 }
 
 .footer-logo-img {
-    grid-column: span 1; /* Il logo occupa 4 colonne */
-    max-width: 100%; /* Imposta una larghezza massima del logo */
-    height: auto; /* Mantieni le proporzioni */
+    grid-column: span 1; 
+    max-width: 100%; 
+    height: auto; 
 }
 
 /* Sezione studenti */
@@ -500,8 +500,8 @@ s
 }
 
 .student-card video {
-    display: block;     /* Rende il video un elemento a blocco */
-    margin: 0 auto;     /* Centra il blocco orizzontalmente */
+    display: block;    
+    margin: 0 auto;   
   }
 
 
@@ -516,7 +516,7 @@ s
     background-size: cover;
     background-position: center;
     display: none;
-    pointer-events: none; /* Evita interferenze con il mouse */
+    pointer-events: none; 
     z-index: 100;
     border: 3px solid #FFF200;
     border-radius: 10px;
@@ -539,7 +539,7 @@ s
     border: none;
     border-radius: 0px;
     cursor: pointer;
-    pointer-events: auto; /* Permette di cliccare sul bottone */
+    pointer-events: auto; 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease-in-out;
 }
@@ -549,8 +549,11 @@ s
 }
 
 .gallery-item {
-    overflow: hidden; /* Previene lo sforamento dell'immagine fuori dal contenitore */
+    overflow: hidden; 
 }
+
+
+
 
 
 
@@ -603,7 +606,7 @@ s
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 100vh;  /* Altezza completa della viewport */
+        height: 100vh; 
         width: 100%;
         position: relative;
     }
@@ -626,17 +629,17 @@ s
         .menu-overlay {
             position: fixed;
             top: 0;
-            left: -100%;  /* Nasconde l'overlay fuori dallo schermo */
+            left: -100%;  
             width: 100%;
             height: 100%;
             background-color: #FFF200;
             opacity: 0.9;
             z-index: 99;
-            transition: left 0.5s ease-in-out; /* Effetto di transizione */
+            transition: left 0.5s ease-in-out; 
         }
         
         .menu-overlay.active {
-            left: 0; /* Quando attivo, sposta l'overlay a sinistra */
+            left: 0; 
         }
 
 
@@ -711,7 +714,7 @@ s
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Altezza schermo intero */
+            height: 100vh; 
             width: 100%;
         }
 
@@ -737,8 +740,8 @@ s
     }
 
     .student-card video {
-        display: block;     /* Rende il video un elemento a blocco */
-        margin: 0 auto;     /* Centra il blocco orizzontalmente */
+        display: block;    
+        margin: 0 auto;    
       }
 
     .student-title {
@@ -844,17 +847,17 @@ s
 
 
 .footer-logo-img {
-    grid-column-start: 2 ; /* Il logo occupa 4 colonne */
-    max-width: 90%; /* Imposta una larghezza massima del logo */
-    height: auto; /* Mantieni le proporzioni */
+    grid-column-start: 2 ; 
+    max-width: 90%; 
+    height: auto; 
 }
 
 
 
 .footer-logo-img {
-    grid-column: span 2; /* Il logo occupa 4 colonne */
-    max-width: 80%; /* Imposta una larghezza massima del logo */
-    height: auto; /* Mantieni le proporzioni */
+    grid-column: span 2; 
+    max-width: 80%; 
+    height: auto;
 }
 
 .horizontal-gallery {
@@ -905,34 +908,34 @@ s
     font-size: 60px;
     letter-spacing: -0.01em; 
 }
- /* Assicura che il contenitore magazine sia centrato */
+ 
  #magazine {
-    padding: 0 1rem; /* Aggiunge margini ai lati */
-    margin: 0 auto;  /* Centra orizzontalmente */
-    max-width: 100%; /* Impedisce overflow */
+    padding: 0 1rem;
+    margin: 0 auto;  
+    max-width: 100%; 
 }
 
 .image-container-magazine {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: calc(100% - 2rem); /* Tiene conto dei margini */
+    width: calc(100% - 2rem); 
     margin: 0 auto;
 }
 
 .image-container-magazine video {
-    width: 100%;  /* Occupa l'intera larghezza del contenitore */
-    max-height: 90vw;  /* Impedisce di superare il viewport */
+    width: 100%; 
+    max-height: 90vw;  
     margin: 0 auto;
     display: block;
 }
 
 #about-logo-nav {
-        width: 80px;  /* Imposta la larghezza desiderata */
-        height: auto;  /* Mantiene le proporzioni originali */
-        max-width: 100%;  /* Assicura che l'immagine sia responsive */
-        display: block;  /* Evita eventuali spazi indesiderati sotto l'immagine */
-        margin-bottom: 100 auto;  /* Centra l'immagine orizzontalmente */
+        width: 100px;  
+        height: auto;  
+        max-width: 100%; 
+        display: block;  
+        margin-bottom: 100 auto; 
         padding-bottom: 10px;
 
 }

@@ -179,12 +179,12 @@ Object.assign(previewButton.style, {
     outline: 'none',
     textShadow: 'none',
     transition: 'background-color 0.3s ease-in-out, color 0.3s ease-in-out',
-    display: 'flex',          // Permette il centramento
-    alignItems: 'center',      // Allinea verticalmente il testo al centro
-    justifyContent: 'center',  // Allinea orizzontalmente il testo al centro
-    textAlign: 'center',       // Assicura che il testo sia centrato
-    lineHeight: 'normal',       // Previene problemi di altezza
-    textTransform: 'uppercase' // Trasforma il testo in maiuscolo
+    display: 'flex',          
+    alignItems: 'center',      
+    justifyContent: 'center',  
+    textAlign: 'center',       
+    lineHeight: 'normal',       
+    textTransform: 'uppercase' 
 
 });
 
@@ -220,7 +220,6 @@ function isCursorInProjectSection(event) {
         event.clientY <= rect.bottom
     );
 }
-
 // Gestione dell'evento mouseover sugli elementi project-name
 projectNames.forEach((project, index) => {
     project.addEventListener('mouseover', (event) => {
@@ -232,18 +231,34 @@ projectNames.forEach((project, index) => {
                 let width = img.width;
                 let height = img.height;
 
-                // Adatta dimensioni immagine
-                if (width > height) {
-                    if (width > 1000) {
+                if (window.innerWidth <= 768) {
+                    // Adattamento per mobile
+                    const maxMobileWidth = window.innerWidth * 0.8; 
+                    const maxMobileHeight = window.innerHeight * 0.5; 
+
+                    if (width > height) {
                         const aspectRatio = height / width;
-                        width = 1000;
+                        width = maxMobileWidth;
                         height = width * aspectRatio;
+                    } else {
+                        const aspectRatio = width / height;
+                        height = maxMobileHeight;
+                        width = height * aspectRatio;
                     }
                 } else {
-                    if (height > 800) {
-                        const aspectRatio = width / height;
-                        height = 800;
-                        width = height * aspectRatio;
+                    // Adattamento per desktop
+                    if (width > height) {
+                        if (width > 1000) {
+                            const aspectRatio = height / width;
+                            width = 1000;
+                            height = width * aspectRatio;
+                        }
+                    } else {
+                        if (height > 800) {
+                            const aspectRatio = width / height;
+                            height = 800;
+                            width = height * aspectRatio;
+                        }
                     }
                 }
 
@@ -262,31 +277,52 @@ projectNames.forEach((project, index) => {
         }
     });
 
+
+// Funzione per aggiornare le dimensioni del bottone
+function updateButtonSize() {
+    if (window.innerWidth <= 768) {
+        // Stili per mobile
+        Object.assign(previewButton.style, {
+            fontSize: '12px',
+            padding: '10px 12px',
+            width: '70%',  
+            height: '30px',
+            bottom: '10px',  
+        });
+    } else {
+        // Stili per desktop
+        Object.assign(previewButton.style, {
+            fontSize: '14px',
+            padding: '14px 16px',
+            width: 'auto',
+            height: '34px',
+            bottom: '20px',
+        });
+    }
+}
+
+// Inizializza il bottone con la dimensione corretta
+updateButtonSize();
+
+// Aggiorna le dimensioni del bottone quando la finestra viene ridimensionata
+window.addEventListener('resize', updateButtonSize);
+
+
+    
+// Chiudi l'anteprima quando si clicca sull'overlay o fuori dall'immagine
+document.addEventListener('click', (event) => {
+    if (imagePreview.style.display === 'block' && !imagePreview.contains(event.target)) {
+        imagePreview.style.display = 'none';
+        overlay.style.display = 'none';
+    }
+});
+
+
     // Nasconde l'anteprima quando si esce dall'ultimo elemento
     if (index === projectNames.length - 1) {
         project.addEventListener('mouseleave', () => {
             imagePreview.style.display = 'none';
             overlay.style.display = 'none';
         });
-    }
-});
-
-// Nasconde l'anteprima e l'overlay quando il mouse esce dall'immagine
-imagePreview.addEventListener('mouseout', () => {
-    imagePreview.style.display = 'none';
-    overlay.style.display = 'none';
-});
-
-// Mantiene visibile l'anteprima finché il mouse è sopra di essa
-imagePreview.addEventListener('mouseover', () => {
-    imagePreview.style.display = 'block';
-    overlay.style.display = 'block';
-});
-
-// Nasconde l'overlay se si clicca fuori dall'immagine
-overlay.addEventListener('click', (e) => {
-    if (!imagePreview.contains(e.target)) {
-        imagePreview.style.display = 'none';
-        overlay.style.display = 'none';
     }
 });
